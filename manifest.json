@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Webpage Summarizer",
+  "version": "1.0",
+  "description": "Summarizes the content of any webpage",
+  "permissions": ["activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all-urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
