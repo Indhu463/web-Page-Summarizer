@@ -1,15 +1,23 @@
+const output = document.getElementById("summary");
 document.getElementById("Summerize").addEventListener("click", async () => {
+  console.log("button clicked");
+
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-  // this means "hey chrome, run the fucntion getPageText() inside the webpage(where content.js usually runs)"
+
   chrome.scripting.executeScript(
     {
       target: { tabId: tab.id },
-      func: getPageText,
+      function: () => {
+        return document.body.innerText.slice(0, 4000);
+      },
     },
     (results) => {
-      const pageText = results[0].result;
-      document.getElementById("summary").textContent =
-        "page text length: " + pageText.lenght;
+      const pageText = results[0]?.result;
+      if (pageText) {
+        output.textContent = "page text length: " + pageText.length;
+      } else {
+        output.textContent = "cannot access pae text";
+      }
     }
   );
 });
