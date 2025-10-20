@@ -4,11 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Web Page Summerizer</title>
+    <style>
+      body {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        width: 350px;
+        padding: 15px;
+        background-color: #f4c2c2;
+        color: #9e4244;
+      }
+      h3 {
+        font-size: 25px;
+        text-align: center;
+        margin: 10px;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #e11584;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      button:hover {
+        background-color: #fa86c4;
+      }
+      #summary {
+        margin: 15px;
+        font-size: 15px;
+        line-height: 1.5;
+        background-color: white;
+        border-radius: 5px;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+    </style>
   </head>
   <body>
     <h3>Web Page Summerizer</h3>
     <button id="Summerize">Summerize Page</button>
     <p id="summary"></p>
-    <script src="popup.js"></script>
+    <script type="module" src="popup.js"></script>
   </body>
 </html>
